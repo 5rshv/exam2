@@ -4,8 +4,9 @@ import org.skypro.exam_app.domain.Question;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+
 @Service
-public class ExaminerServiceImpl implements ExaminerService{
+public class ExaminerServiceImpl implements ExaminerService {
     private final JavaQuestionService javaService;
 
 
@@ -14,17 +15,17 @@ public class ExaminerServiceImpl implements ExaminerService{
     }
 
     @Override
-    public Collection<Question> getQuestionServices(int amount){
-        int size  = javaService.getAll().size();
-        if(size < amount){
+    public Collection<Question> getQuestionServices(int amount) {
+        int size = javaService.getAll().size();
+        if (size < amount) {
             throw new IllegalArgumentException("Что-то ты напутал");
         }
 
-        Set<Question> setQuestion =  new HashSet<>();
+        Set<Question> setQuestion = new HashSet<>();
 
-        while(setQuestion.size() < amount) {
+        while (setQuestion.size() < amount) {
             setQuestion.add(javaService.getRandomQuestion());
         }
-        return  setQuestion;
+        return setQuestion;
     }
 }
