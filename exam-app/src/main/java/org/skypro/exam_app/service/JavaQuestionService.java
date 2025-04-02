@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class JavaQuestionService  implements QuestionServices{
+public class JavaQuestionService implements QuestionServices {
 
     private final Random random = new Random();
     private final Set<Question> javaQuestion = new LinkedHashSet<>();

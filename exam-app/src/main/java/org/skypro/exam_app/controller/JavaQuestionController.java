@@ -19,17 +19,19 @@ public class JavaQuestionController {
 
     @GetMapping("/exam/java/add")
     public String addQuestion(@RequestParam("question") String QuestionText,
-                              @RequestParam("answer") String QuestionAnswer){
+                              @RequestParam("answer") String QuestionAnswer) {
         Question question = new Question(QuestionText, QuestionAnswer);
         javaQuestionService.addQuestion(QuestionText, QuestionAnswer);
         return "Вопрос добавлен в пул";
     }
+
     @GetMapping("/exam/java/remove")
     public String removeQuestion(@RequestParam("question") String QuestionText,
-                                 @RequestParam("answer") String QuestionAnswer){
+                                 @RequestParam("answer") String QuestionAnswer) {
         javaQuestionService.remove(new Question(QuestionText, QuestionAnswer));
         return "Вопрос удален";
     }
+
     @GetMapping("/exam/java")
     public Collection<Question> getQuestions() {
         return javaQuestionService.getAll();
